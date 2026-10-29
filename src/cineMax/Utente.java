@@ -1,16 +1,16 @@
 package cineMax;
-public class Utenti {
+public class Utente {
     private String nome;
     private String cognome;
     private String username;
     private String password;        //devo vedere come metterlo
-    private String dataNascita;
+    private String dataNascita;         //facoltativa
     private String luogoDomicilio;
     private String ruolo;
 
 
     //costruttore
-    public Utenti(String nome, String cognome, String username, String password, String dataNascita, String luogoDomicilio, String ruolo){
+    public Utente(String nome, String cognome, String username, String password, String dataNascita, String luogoDomicilio, String ruolo){
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;

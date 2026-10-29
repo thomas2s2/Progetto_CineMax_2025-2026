@@ -1,19 +1,17 @@
 package cineMax;
 
-import java.lang.classfile.attribute.DeprecatedAttribute;
-
-public class Proiezioni {
-    private int dataOraProiezione;
+public class Proiezione{
+    private int dataOraProiezione;      //non so come farlo, devo tipo creare una classe esterna chiamata orrio che estrapola data e ora?
     private String titoloFilm;
-    private String genere;
+    private String genere;      //sarà un enum poi
     private String regista;
-    private int anno;
+    private int anno;           //controllare che sia valido (data uscita < data proiezione)
     private int durataMinuti;
     private int etaMinima;
-    private int prezzoBiglietto;
+    private  float prezzoBiglietto;
 
     //costruttore
-    public Proiezioni(int dataOraProiezione, String titoloFilm, String genere, String regista, int anno, int durataMinuti, int etaMinima, int prezzoBiglietto){
+    public Proiezione(int dataOraProiezione, String titoloFilm, String genere, String regista, int anno, int durataMinuti, int etaMinima, float prezzoBiglietto){
         this.dataOraProiezione = dataOraProiezione;
         this.titoloFilm = titoloFilm;
         this.genere = genere;
@@ -53,7 +51,7 @@ public class Proiezioni {
         return etaMinima;
     }
 
-    public int getPrezzoBiglietto(){
+    public float getPrezzoBiglietto(){
         return prezzoBiglietto;
     }
 
@@ -87,7 +85,9 @@ public class Proiezioni {
         this.etaMinima = etaMinima;
     }
 
-    public void setPrezzoBiglietto(int prezzoBiglietto) {
+    public void setPrezzoBiglietto(float prezzoBiglietto) {
         this.prezzoBiglietto = prezzoBiglietto;
     }
 }
+
+public
