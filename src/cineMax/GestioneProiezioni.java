@@ -15,7 +15,7 @@ public class GestioneProiezioni{
     //metodi set
     public void aggiungiProiezione(Proiezione p){
         for(int i = 0; i < proiezioni.size(); i++) {
-            if (p.getDataOraProiezione() == proiezioni.get(i)){
+            if (p.getDataOraProiezione() == proiezioni.get(i).getDataOraProiezione()){
                 //messaggio di errore
             }
         }
