@@ -89,5 +89,3 @@ public class Proiezione{
         this.prezzoBiglietto = prezzoBiglietto;
     }
 }
-
-public
