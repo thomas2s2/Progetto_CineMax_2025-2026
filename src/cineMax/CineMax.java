@@ -10,8 +10,15 @@ public class CineMax {
 
         System.out.println("=== Benvenuto nel Menù di CineMax ===");
         while(controllo){
-            System.out.println("Digitare un numero per scegliere cosa fare:");
-            System.out.println("1) Cercare Proiezioni;\n 2) Registrarsi;");
+            System.out.println("\n--- MENU PRINCIPALE ---");
+            System.out.println("1) Cercare proiezioni");
+            System.out.println("2) Visualizzare dettagli di una proiezione");
+            System.out.println("3) Registrarsi");
+            System.out.println("4) Login");
+            System.out.println("0) Esci");
+
+            System.out.print("Scegli un opzione: ");
+            
             scelta = sc.nextInt();
 
             switch (scelta) {
