@@ -6,7 +6,6 @@ public class Cliente extends Utente{
         super(nome,cognome,username,password,dataNascita,luogoDomicilio,"Cliente");
     }
 
-
     // restituisce le prenotazioni del cliente.
     public list<Prenotazione> visualizzaPrenotazioni(GestionePrenotazioni gestore) {
         return gestore.prenotazioniCliente(this);
