@@ -22,7 +22,7 @@ public class Cliente extends Utente{
     }
 
     // cancella prenotazione
-    public void aliminaPrenotazione (GestionePrenotazioni gestore, String codice) {
+    public void eliminaPrenotazione (GestionePrenotazioni gestore, String codice) {
         gestore.eliminaPrenotazione (this, codice);
     }
 }
