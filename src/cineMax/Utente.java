@@ -1,5 +1,6 @@
 package cineMax;
-public class Utente {
+
+public abstract class Utente {
     private String nome;
     private String cognome;
     private String username;
@@ -31,10 +32,6 @@ public class Utente {
 
     public String getUsername(){
         return username;
-    }
-
-    public String password(){
-        return password;
     }
 
     public String getDataNascita(){
