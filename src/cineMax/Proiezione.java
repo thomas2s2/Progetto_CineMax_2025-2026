@@ -1,93 +1,65 @@
 package cineMax;
 
-public class Proiezione{
-    private int dataOraProiezione;      //non so come farlo, devo tipo creare una classe esterna chiamata orrio che estrapola data e ora?
-    private String titoloFilm;
-    private String genere;      //sarà un enum poi
-    private String regista;
-    private int anno;           //controllare che sia valido (data uscita < data proiezione)
-    private int durataMinuti;
-    private int etaMinima;
-    private  float prezzoBiglietto;
+import java.time.LocalDateTime;
+
+public class Proiezione extends Film{
+    private LocalDateTime dataOraProiezione;      //non so come farlo, devo tipo creare una classe esterna chiamata orrio che estrapola data e ora?
+    private int id;
+    private  double prezzoBiglietto;
+    static final int POSTI_TOTALI=200;
+
 
     //costruttore
-    public Proiezione(int dataOraProiezione, String titoloFilm, String genere, String regista, int anno, int durataMinuti, int etaMinima, float prezzoBiglietto){
+    public Proiezione(int id, LocalDateTime dataOraProiezione, double prezzoBiglietto, int filmId, String titolo, GeneriFilm genere, String regista, int anno, int durata, int etaMinima) {
+        super(filmId, titolo, genere, regista, anno, durata, etaMinima);
+        this.id = id;
         this.dataOraProiezione = dataOraProiezione;
-        this.titoloFilm = titoloFilm;
-        this.genere = genere;
-        this. regista = regista;
-        this. anno = anno;
-        this. durataMinuti = durataMinuti;
-        this.etaMinima = etaMinima;
         this.prezzoBiglietto = prezzoBiglietto;
+        if(getAnno() > dataOraProiezione.getYear()) { throw new IllegalArgumentException("l'anno d'uscita del film non può essere successivo al suo anno di proiezione");}
     }
 
     //metodi get
-    public int getDataOraProiezione(){
+    public LocalDateTime getDataOraProiezione(){
         return dataOraProiezione;
     }
-
-    public String getTitoloFilm(){
-        return titoloFilm;
-    }
-
-    public String getGenere(){
-        return genere;
-    }
-
-    public String getRegista(){
-        return regista;
-    }
-
-    public int getAnno(){
-        return anno;
-    }
-
-    public int getDurataMinuti(){
-        return durataMinuti;
-    }
-
-    public int getEtaMinima(){
-        return etaMinima;
-    }
-
-    public float getPrezzoBiglietto(){
+    public int getId(){ return id;}
+    public double getPrezzoBiglietto(){
         return prezzoBiglietto;
     }
-
+    public int getPostiTotali(){ return POSTI_TOTALI;}
 
     //metodi set
-    public void setDataOraProiezione(int dataOraPoiezione){
+    public void setDataOraProiezione(LocalDateTime dataOraPoiezione){
         this.dataOraProiezione = dataOraPoiezione;
     }
-
-    public void setTitoloFilm(String titoloFilm) {
-        this.titoloFilm = titoloFilm;
-    }
-
-    public void setGenere(String genere) {
-        this.genere = genere;
-    }
-
-    public void setRegista(String regista) {
-        this.regista = regista;
-    }
-
-    public void setAnno(int anno) {
-        this.anno = anno;
-    }
-
-    public void setDurataMinuti(int durataMinuti) {
-        this.durataMinuti = durataMinuti;
-    }
-
-    public void setEtaMinima(int etaMinima) {
-        this.etaMinima = etaMinima;
-    }
-
-    public void setPrezzoBiglietto(float prezzoBiglietto) {
+    public void setPrezzoBiglietto(double prezzoBiglietto) {
         this.prezzoBiglietto = prezzoBiglietto;
     }
+    public void setId (int id){ this.id=id;}
+
+    /*public int getPostiOccupati() {
+        int occupati = 0;
+
+        for (Prenotazione p : prenotazioni) {
+            occupati += p.calcolaTotale();
+        }
+
+        return occupati;
+    }
+    public int getPostiLiberi(){
+        return POSTI_TOTALI-getPostiOccupati();
+    }
+
+   public boolean haPosti(int quantita) {
+        if (quantita > 0 && getPostiOccupati() + quantita <= POSTI_TOTALI) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void aggiornaPosti(){
+        aspettiamo la classe prenotazione
+    }*/
 }
 
-public

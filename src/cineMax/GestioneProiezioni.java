@@ -2,7 +2,6 @@ package cineMax;
 import java.util.LinkedList;
 public class GestioneProiezioni{
     private static LinkedList<Proiezione> proiezioni;
-
     public GestioneProiezioni(){
         proiezioni = new LinkedList<>();
     }
@@ -13,15 +12,6 @@ public class GestioneProiezioni{
     }
 
     //metodi set
-    public void aggiungiProiezione(Proiezione p){
-        for(int i = 0; i < proiezioni.size(); i++) {
-            if (p.getDataOraProiezione() == proiezioni.get(i).getDataOraProiezione()){
-                //messaggio di errore
-            }
-        }
-        proiezioni.add(p);
-    }
-    public void rimuoviProiezione(int indice){}
 
     public LinkedList<Proiezione> getProiezioni(){
         return proiezioni;
