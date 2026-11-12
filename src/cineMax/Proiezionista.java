@@ -13,11 +13,11 @@ public class Proiezionista extends Utente{
 
     // modifica una proiezione
     public void modificaProiezione (GestioneProiezioni gestore, int indice, Proiezione nuovaProiezione) {
-        gestione.modificaProiezione(indice, nuovaProiezione);
+        gestore.modificaProiezione(indice, nuovaProiezione);
     }
 
     // elimina proiezione
-    public void eliminaProiezione(Gestione<prenotazioni gestore, int indice) {
-        gestione.eliminaProiezione(indice);
+    public void eliminaProiezione(GestioneProiezioni gestore, int indice) {
+        gestore.eliminaProiezione(indice);
     }
 }
