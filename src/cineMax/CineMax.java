@@ -8,7 +8,7 @@ public class CineMax {
         int scelta;
         boolean controllo = true;
 
-        System.out.println("----Benvenuto nel Menù del cinema----");
+        System.out.println("=== Benvenuto nel Menù di CineMax ===");
         while(controllo){
             System.out.println("Digitare un numero per scegliere cosa fare:");
             System.out.println("1) Cercare Proiezioni;\n 2) Registrarsi;");
