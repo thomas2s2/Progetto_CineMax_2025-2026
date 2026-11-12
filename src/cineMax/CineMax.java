@@ -18,8 +18,15 @@ public class CineMax {
             System.out.println("0) Esci");
 
             System.out.print("Scegli un opzione: ");
+
+            if (!sc.hasNextInt()) {
+                System.out.println("Inserisci un numero valido.");
+                sc.nextLine();
+                continue;
+            }
             
             scelta = sc.nextInt();
+            sc.nextLine();
 
             switch (scelta) {
                 case 1 -> {//cerca proiezioni;
