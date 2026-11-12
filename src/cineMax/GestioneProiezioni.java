@@ -1,6 +1,6 @@
 package cineMax;
 import java.util.LinkedList;
-public class GestioneProiezioni{
+public class GestioneProiezioni extends Gestore{
     private static LinkedList<Proiezione> proiezioni;
 
     public GestioneProiezioni(){
@@ -31,7 +31,7 @@ public class GestioneProiezioni{
             System.out.println(p);
         }
     }
-    public LinkedList<Proiezione> cercaProiezioni(int r, String s){
+    public LinkedList<Proiezione> cercaProiezioni(String s){
         String[] filter = filtriArray(s);
         LinkedList<Proiezione> tmp = proiezioni;
         boolean presente;
