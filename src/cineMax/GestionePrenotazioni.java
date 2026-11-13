@@ -1,7 +1,7 @@
 package cineMax;
 import java.util.LinkedList;
 
-public class GestionePrenotazioni extends Gestore {
+public class GestionePrenotazioni extends Gestore<Prenotazione> {
     private LinkedList<Prenotazione> prenotazioni;
     private int numBigl;
     private String codClien;

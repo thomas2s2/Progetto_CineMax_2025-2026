@@ -1,6 +1,9 @@
 package cineMax;
 
-public class Gestore {
+public abstract class Gestore<T> {
 
+    public Gestore(){
+
+    }
 }
 
