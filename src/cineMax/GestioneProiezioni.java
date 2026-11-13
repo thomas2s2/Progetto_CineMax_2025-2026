@@ -15,7 +15,7 @@ public class GestioneProiezioni{
     //metodi set
     public void aggiungiProiezione(Proiezione p) {
         for (int i = 0; i < proiezioni.size(); i++) {
-            if (p.getDataOraProiezione().equals(proiezioni.get(i).getDataOraProiezione())) {
+            if (p.getDataOraProiezione() == proiezioni.get(i).getDataOraProiezione()) {
                 throw new IllegalArgumentException("Proiezione già presente");
             }
         }
@@ -33,7 +33,7 @@ public class GestioneProiezioni{
     public LinkedList<Proiezione> getProiezioni(){
         return proiezioni;
     }
-    public static void stampaProiezioni(){
+    public static void stampaProiezioni(){      //da adattere, un po' generico
         for(Proiezione p: proiezioni){
             System.out.println(p);
         }

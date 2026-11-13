@@ -1,9 +1,7 @@
 package cineMax;
 
-import java.time.LocalDateTime;
-
 public class Film {
-    private int filmId;
+    private String filmId;
     private String titoloFilm;
     private GeneriFilm genere;
     private String regista;
@@ -11,7 +9,7 @@ public class Film {
     private int durataMinuti;
     private int etaMinima;
 
-    public Film(int filmId, String titoloFilm, GeneriFilm genere, String regista, int anno, int durataMinuti, int etaMinima) {
+    public Film(String filmId, String titoloFilm, GeneriFilm genere, String regista, int anno, int durataMinuti, int etaMinima) {
         this.filmId=filmId;
         this.titoloFilm =titoloFilm;
         this.genere =genere;
@@ -22,7 +20,7 @@ public class Film {
     }
 
 
-    public String getTitoloFilm() {
+    public String getTitolo() {
         return titoloFilm;
     }
 
@@ -43,22 +41,27 @@ public class Film {
     }
 
     public int getEtaMinima() {
+
         return etaMinima;
     }
 
     public void setTitoloFilm(String titoloFilm) {
+
         this.titoloFilm = titoloFilm;
     }
 
     public void setGenere(GeneriFilm genere) {
+
         this.genere = genere;
     }
 
     public void setRegista(String regista) {
+
         this.regista = regista;
     }
 
     public void setAnno(int anno) {
+
         this.anno = anno;
     }
 
@@ -68,10 +71,5 @@ public class Film {
 
     public void setEtaMinima(int etaMinima) {
         this.etaMinima = etaMinima;
-    }
-    public String getDettagli(){
-        String ris = "";
-        ris= "Titolo: " + titoloFilm + "\n" + "Regista: " + regista + "\n" + "Anno: " + anno + "\n" + "Durata: " + durataMinuti + "\n" + "Età minima: " + etaMinima + "\n" + "Genere: " + genere;
-        return ris;
     }
 }

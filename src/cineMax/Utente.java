@@ -6,18 +6,16 @@ public class Utente {
     private String password;        //devo vedere come metterlo
     private String dataNascita;         //facoltativa
     private String luogoDomicilio;
-    private String ruolo;
 
 
     //costruttore
-    public Utente(String nome, String cognome, String username, String password, String dataNascita, String luogoDomicilio, String ruolo){
+    public Utente(String nome, String cognome, String username, String password, String dataNascita, String luogoDomicilio){
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;
         this.password = password;
         this.dataNascita = dataNascita;
         this.luogoDomicilio = luogoDomicilio;
-        this.ruolo = ruolo;
     }
 
     //metodi get
@@ -33,7 +31,7 @@ public class Utente {
         return username;
     }
 
-    public String password(){
+    private String getPassword(){
         return password;
     }
 
@@ -41,11 +39,8 @@ public class Utente {
         return dataNascita;
     }
 
-    public String luogoDomicilio(){
+    public String getLuogoDomicilio(){
         return luogoDomicilio;
-    }
-    public String getRuolo(){
-        return ruolo;
     }
 
     //metrodi set
@@ -57,13 +52,15 @@ public class Utente {
     public void setCognome(String cognome){
         this.cognome = cognome;
     }
-    public void  setUsername(String username){
+    public void setUsername(String username){
         this.username = username;
     }
 
-    public void setPassword(String password){
-        //metodo della classe Encript_Password che riceverà una stringa, la cripterà e restituirà una stringa criptata
-    }
+   /* public void setPassword(String vecchiaPws,String nuovaPws){
+        if(this.password.equals(vecchiaPws)) {
+           this.password = Encript_password.encrypt(nuovaPws); //metodo della classe Encript_Password che riceverà una stringa, la cripterà e restituirà una stringa criptata
+        }
+    }*/
 
     public void dataNascita(String dataNascita){
         this.dataNascita = dataNascita;
@@ -73,8 +70,5 @@ public class Utente {
         this.luogoDomicilio = luogoDomicilio;
     }
 
-    public void setRuolo(String ruolo){
-        this.ruolo = ruolo;
-    }
 
 }

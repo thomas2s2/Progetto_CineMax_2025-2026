@@ -2,23 +2,13 @@ package cineMax;
 
 public class Proiezione{
     private int dataOraProiezione;      //non so come farlo, devo tipo creare una classe esterna chiamata orrio che estrapola data e ora?
-    private String titoloFilm;
-    private String genere;      //sarà un enum poi
-    private String regista;
-    private int anno;           //controllare che sia valido (data uscita < data proiezione)
-    private int durataMinuti;
-    private int etaMinima;
     private  float prezzoBiglietto;
+    private Film film;
 
     //costruttore
-    public Proiezione(int dataOraProiezione, String titoloFilm, String genere, String regista, int anno, int durataMinuti, int etaMinima, float prezzoBiglietto){
+    public Proiezione(String filmId, int dataOraProiezione, String titoloFilm, GeneriFilm genere, String regista, int anno, int durataMinuti, int etaMinima, float prezzoBiglietto){
         this.dataOraProiezione = dataOraProiezione;
-        this.titoloFilm = titoloFilm;
-        this.genere = genere;
-        this. regista = regista;
-        this. anno = anno;
-        this. durataMinuti = durataMinuti;
-        this.etaMinima = etaMinima;
+        film = new Film(filmId, titoloFilm, genere, regista, anno, durataMinuti, etaMinima);
         this.prezzoBiglietto = prezzoBiglietto;
     }
 
@@ -28,27 +18,28 @@ public class Proiezione{
     }
 
     public String getTitoloFilm(){
-        return titoloFilm;
+        return film.getTitolo();
     }
 
-    public String getGenere(){
-        return genere;
+    public GeneriFilm getGenere(){
+
+        return film.getGenere();
     }
 
     public String getRegista(){
-        return regista;
+        return film.getRegista();
     }
 
     public int getAnno(){
-        return anno;
+        return film.getAnno();
     }
 
     public int getDurataMinuti(){
-        return durataMinuti;
+        return film.getDurataMinuti();
     }
 
     public int getEtaMinima(){
-        return etaMinima;
+        return film.getEtaMinima();
     }
 
     public float getPrezzoBiglietto(){
@@ -62,27 +53,27 @@ public class Proiezione{
     }
 
     public void setTitoloFilm(String titoloFilm) {
-        this.titoloFilm = titoloFilm;
+        film.setTitoloFilm(titoloFilm);
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGenere( GeneriFilm genere) {
+        film.setGenere(genere);
     }
 
     public void setRegista(String regista) {
-        this.regista = regista;
+        film.setRegista(regista);
     }
 
     public void setAnno(int anno) {
-        this.anno = anno;
+        film.setAnno(anno);
     }
 
     public void setDurataMinuti(int durataMinuti) {
-        this.durataMinuti = durataMinuti;
+        film.setDurataMinuti(durataMinuti);
     }
 
     public void setEtaMinima(int etaMinima) {
-        this.etaMinima = etaMinima;
+        film.setEtaMinima(etaMinima);
     }
 
     public void setPrezzoBiglietto(float prezzoBiglietto) {
