@@ -1,8 +1,8 @@
 package cineMax;
-import java.util.LinkedList;
-public class GestioneProiezioni extends Gestore<Proiezione>{
-    private static LinkedList<Proiezione> proiezioni;
 
+import java.util.LinkedList;
+public class GestioneProiezioni{
+    private static LinkedList<Proiezione> proiezioni;
     public GestioneProiezioni(){
         proiezioni = new LinkedList<>();
     }
@@ -13,15 +13,22 @@ public class GestioneProiezioni extends Gestore<Proiezione>{
     }
 
     //metodi set
-    public void aggiungiProiezione(Proiezione p){
-        for(int i = 0; i < proiezioni.size(); i++) {
-            if (p.getDataOraProiezione() == proiezioni.get(i).getDataOraProiezione()){
-                //messaggio di errore
+    public void aggiungiProiezione(Proiezione p) {
+        for (int i = 0; i < proiezioni.size(); i++) {
+            if (p.getDataOraProiezione().equals(proiezioni.get(i).getDataOraProiezione())) {
+                throw new IllegalArgumentException("Proiezione già presente");
             }
         }
         proiezioni.add(p);
     }
-    public void rimuoviProiezione(int indice){}
+
+    public void rimuoviProiezione(int posizioneProiezione){
+        if(posizioneProiezione >=1 && posizioneProiezione <= proiezioni.size()) {
+            proiezioni.remove(posizioneProiezione - 1);
+        } else {
+            throw new IndexOutOfBoundsException("posizione oltre il limite della lista");
+        }
+    }
 
     public LinkedList<Proiezione> getProiezioni(){
         return proiezioni;
@@ -31,38 +38,37 @@ public class GestioneProiezioni extends Gestore<Proiezione>{
             System.out.println(p);
         }
     }
-    public LinkedList<Proiezione> cercaProiezioni(String s){
+    public LinkedList<Proiezione> cercaProiezioni(int r, String s){
         String[] filter = filtriArray(s);
-        LinkedList<Proiezione> risultati = proiezioni;
+        LinkedList<Proiezione> tmp = proiezioni;
         boolean presente;
-        for(int i = 0; i < risultati.size(); i++) {
+        for(int i = 0; i < tmp.size(); ) {
             presente = true;
-            if (!risultati.get(i).getTitoloFilm().equals(filter[0])){
-                risultati.remove(i);
+            if (!tmp.get(i).getTitoloFilm().equals(filter[0])){
+                tmp.remove(i);
                 presente = false;
             }
-            if (presente && !risultati.get(i).getGenere().equals(filter[1])){
-                risultati.remove(i);
+            if (presente && !tmp.get(i).getGenere().equals(filter[1])){
+                tmp.remove(i);
                 presente = false;
             }
-            if (presente && !risultati.get(i).getRegista().equals(filter[2])){
-                risultati.remove(i);
+            if (presente && !tmp.get(i).getRegista().equals(filter[2])){
+                tmp.remove(i);
                 presente = false;
             }
-            if (presente && !(risultati.get(i).getAnno()==Integer.parseInt(filter[3]))){
-                risultati.remove(i);
+            if (presente && !(tmp.get(i).getAnno()==Integer.parseInt(filter[3]))){
+                tmp.remove(i);
                 presente = false;
             }
-            presente = true;
         }
-        return risultati;
+        return tmp;
     }
 
     private String[] filtriArray(String r){
-        int inizio = 0;
+        int inizio=0;
         String[] filtri = {"","","",""};
         int j=0;
-        for( int i=0; i < r.length(); i++){
+        for( int i=0; i<r.length(); i++){
            if(r.charAt(i) ==';'){
                filtri[j]= r.substring(inizio, i-1);
                j++;
