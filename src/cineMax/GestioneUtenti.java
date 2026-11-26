@@ -21,7 +21,7 @@ public class GestioneUtenti {
     public Utente cercaUtente(Utente u){
         super(u);
     }
-}
+
 //utile se il sito fa modificare gli utenti,cancellarli o farli registrare senza usare il file csv
     /*public void registraUtente(Utente u) {
         utenti.add(u);
