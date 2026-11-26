@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class CineMax {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); //scanner per la digitazone
 
         int scelta;
         boolean controllo = true;
@@ -22,7 +22,7 @@ public class CineMax {
             if (!sc.hasNextInt()) {
                 System.out.println("Inserisci un numero valido.");
                 sc.nextLine();
-                continue;
+                continue; //se numero non valido, cancella e riparte
             }
             
             scelta = sc.nextInt();
@@ -30,14 +30,24 @@ public class CineMax {
 
             switch (scelta) {
                 case 1 -> {//cerca proiezioni;
-                    System.out.println("");
+                    System.out.println("Ricerca in sviluppo");
                     //metodo classe proiezioni
                     }
-                case 2 -> {//visualizza dettagli di una proiezione;
+                case 2 -> {
+                    System.out.println("Dettagli in sviluppo");
+                    //visualizza dettagli di una proiezione;
                     }
-                case 3 -> {//registrati all'applicazione
-
+                case 3 -> {
+                     System.out.println("Registrazione in sviluppo");
+                    //registrati all'applicazione
                 }
+                case 4 -> {
+                    System.out.println("Login in sviluppo);
+                }
+                case 0 -> {
+                    System.out.println("Arrivederci!"};
+                    controllo = false;
+            }
                 default -> controllo = false;
             }
         }
