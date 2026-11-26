@@ -72,4 +72,10 @@ public class Film {
     public void setEtaMinima(int etaMinima) {
         this.etaMinima = etaMinima;
     }
+
+    public String getDettagli(){
+        String ris = "";
+        ris= "Titolo: " + titoloFilm + "\n" + "Regista: " + regista + "\n" + "Anno: " + anno + "\n" + "Durata: " + durataMinuti + "\n" + "Età minima: " + etaMinima + "\n" + "Genere: " + genere;
+        return ris;
+    }
 }

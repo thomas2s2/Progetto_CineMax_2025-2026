@@ -3,13 +3,18 @@ package cineMax;
 public class Proiezione{
     private int dataOraProiezione;      //non so come farlo, devo tipo creare una classe esterna chiamata orrio che estrapola data e ora?
     private  float prezzoBiglietto;
+    private static int PostiOccupati;
+    private final int POSTI_TOTALI=200;
     private Film film;
+    private Prenotazione prenotazione;
 
     //costruttore
-    public Proiezione(String filmId, int dataOraProiezione, String titoloFilm, GeneriFilm genere, String regista, int anno, int durataMinuti, int etaMinima, float prezzoBiglietto){
+    public Proiezione(String filmId, int dataOraProiezione, String titoloFilm, GeneriFilm genere, String regista, int anno, int durataMinuti, int etaMinima, float prezzoBiglietto, int PostiOccupati, Prenotazione prenotazione){
         this.dataOraProiezione = dataOraProiezione;
         film = new Film(filmId, titoloFilm, genere, regista, anno, durataMinuti, etaMinima);
         this.prezzoBiglietto = prezzoBiglietto;
+        this.PostiOccupati=PostiOccupati;
+        this.prenotazione=prenotazione;
     }
 
     //metodi get
@@ -79,4 +84,21 @@ public class Proiezione{
     public void setPrezzoBiglietto(float prezzoBiglietto) {
         this.prezzoBiglietto = prezzoBiglietto;
     }
+
+    public void setPostiOccupati(){
+            if(PostiOccupati > prenotazione.getNumeroBiglietti()){
+                this.PostiOccupati= PostiOccupati-prenotazione.getNumeroBiglietti();
+            }
+
+    }
+
+    public static int getPostiOccupati(){
+        return PostiOccupati;
+    }
+    public int getPostiLiberi(){
+        return POSTI_TOTALI-PostiOccupati;
+    }
+
+
+
 }
