@@ -20,6 +20,7 @@ public class GestioneProiezioni{
         for(Proiezione p: proiezioni){
             System.out.println(p);
         }
+        proiezioni.add(p);
     }
     public LinkedList<Proiezione> cercaProiezioni(int r, String s){
         String[] filter = filtriArray(s);
