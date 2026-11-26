@@ -17,7 +17,7 @@ public class GestionePrenotazioni extends Gestore<Prenotazione> {
 
     //setter
     public void modificaPrenotazione(Prenotazione prenModif, int i){
-        prenotazioni.get(i) = prenModif;
+        prenotazioni.set(i,prenModif);
     }
 
     //altro
@@ -25,17 +25,17 @@ public class GestionePrenotazioni extends Gestore<Prenotazione> {
         //crea codice prenotazione --> lo controlla e se == lancia eccezione
         prenotazioni.add(new Prenotazione(numBiglietti, codClien, data));
     }
-    public LinkedList<Prenotazione> cercaPrenotazioni(String Filtro){
+    public LinkedList<Prenotazione> cercaPrenotazioni(String Filtro) {
         super();    //chiama la ricerca di Gestore
     }
 
 
 
 
-    public LinkedList<Prenotazione> prenotazioniOggi(int data){
+    public LinkedList<Prenotazione> prenotazioniOggi(String data){
         LinkedList<Prenotazione>  prenOggi = new LinkedList<>();
-        cercaPrenotazioni(data //string);    //da fare
-        ;return prenOggi;
+        cercaPrenotazioni(data);
+        return prenOggi;
     }
     public void eliminaPrenotazione(int i){
         //se esiste, se no eccezione

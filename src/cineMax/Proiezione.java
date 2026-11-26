@@ -85,20 +85,24 @@ public class Proiezione{
         this.prezzoBiglietto = prezzoBiglietto;
     }
 
-    public void setPostiOccupati(){
-            if(PostiOccupati > prenotazione.getNumeroBiglietti()){
+    public void AggiornaPosti(){
+            if(PostiOccupati >= prenotazione.getNumeroBiglietti()){
                 this.PostiOccupati= PostiOccupati-prenotazione.getNumeroBiglietti();
             }
 
     }
-
     public static int getPostiOccupati(){
         return PostiOccupati;
     }
     public int getPostiLiberi(){
         return POSTI_TOTALI-PostiOccupati;
     }
-
+    public boolean haPosti(){
+        if(getPostiOccupati()==0) {
+            return true;
+        }
+        return false;
+    }
 
 
 }

@@ -34,7 +34,7 @@ public class GestioneProiezioni{
     public LinkedList<Proiezione> getProiezioni(){
         return proiezioni;
     }
-    public static void stampaProiezioni(){      //da adattere, un po' generico
+    public static void stampaProiezioni(){
         for(Proiezione p: proiezioni){
             System.out.println(p);
         }
