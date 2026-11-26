@@ -1,65 +1,82 @@
 package cineMax;
 
-import java.time.LocalDateTime;
-
-public class Proiezione extends Film{
-    private LocalDateTime dataOraProiezione;      //non so come farlo, devo tipo creare una classe esterna chiamata orrio che estrapola data e ora?
-    private int id;
-    private  double prezzoBiglietto;
-    static final int POSTI_TOTALI=200;
-
+public class Proiezione{
+    private int dataOraProiezione;      //non so come farlo, devo tipo creare una classe esterna chiamata orrio che estrapola data e ora?
+    private  float prezzoBiglietto;
+    private Film film;
 
     //costruttore
-    public Proiezione(int id, LocalDateTime dataOraProiezione, double prezzoBiglietto, int filmId, String titolo, GeneriFilm genere, String regista, int anno, int durata, int etaMinima) {
-        super(filmId, titolo, genere, regista, anno, durata, etaMinima);
-        this.id = id;
+    public Proiezione(String filmId, int dataOraProiezione, String titoloFilm, GeneriFilm genere, String regista, int anno, int durataMinuti, int etaMinima, float prezzoBiglietto){
         this.dataOraProiezione = dataOraProiezione;
+        film = new Film(filmId, titoloFilm, genere, regista, anno, durataMinuti, etaMinima);
         this.prezzoBiglietto = prezzoBiglietto;
-        if(getAnno() > dataOraProiezione.getYear()) { throw new IllegalArgumentException("l'anno d'uscita del film non può essere successivo al suo anno di proiezione");}
     }
 
     //metodi get
-    public LocalDateTime getDataOraProiezione(){
+    public int getDataOraProiezione(){
         return dataOraProiezione;
     }
-    public int getId(){ return id;}
-    public double getPrezzoBiglietto(){
+
+    public String getTitoloFilm(){
+        return film.getTitolo();
+    }
+
+    public GeneriFilm getGenere(){
+
+        return film.getGenere();
+    }
+
+    public String getRegista(){
+        return film.getRegista();
+    }
+
+    public int getAnno(){
+        return film.getAnno();
+    }
+
+    public int getDurataMinuti(){
+        return film.getDurataMinuti();
+    }
+
+    public int getEtaMinima(){
+        return film.getEtaMinima();
+    }
+
+    public float getPrezzoBiglietto(){
         return prezzoBiglietto;
     }
-    public int getPostiTotali(){ return POSTI_TOTALI;}
+
 
     //metodi set
-    public void setDataOraProiezione(LocalDateTime dataOraPoiezione){
+    public void setDataOraProiezione(int dataOraPoiezione){
         this.dataOraProiezione = dataOraPoiezione;
     }
-    public void setPrezzoBiglietto(double prezzoBiglietto) {
+
+    public void setTitoloFilm(String titoloFilm) {
+        film.setTitoloFilm(titoloFilm);
+    }
+
+    public void setGenere( GeneriFilm genere) {
+        film.setGenere(genere);
+    }
+
+    public void setRegista(String regista) {
+        film.setRegista(regista);
+    }
+
+    public void setAnno(int anno) {
+        film.setAnno(anno);
+    }
+
+    public void setDurataMinuti(int durataMinuti) {
+        film.setDurataMinuti(durataMinuti);
+    }
+
+    public void setEtaMinima(int etaMinima) {
+        film.setEtaMinima(etaMinima);
+    }
+
+    public void setPrezzoBiglietto(float prezzoBiglietto) {
         this.prezzoBiglietto = prezzoBiglietto;
     }
-    public void setId (int id){ this.id=id;}
-
-    /*public int getPostiOccupati() {
-        int occupati = 0;
-
-        for (Prenotazione p : prenotazioni) {
-            occupati += p.calcolaTotale();
-        }
-
-        return occupati;
-    }
-    public int getPostiLiberi(){
-        return POSTI_TOTALI-getPostiOccupati();
-    }
-
-   public boolean haPosti(int quantita) {
-        if (quantita > 0 && getPostiOccupati() + quantita <= POSTI_TOTALI) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void aggiornaPosti(){
-        aspettiamo la classe prenotazione
-    }*/
 }
-

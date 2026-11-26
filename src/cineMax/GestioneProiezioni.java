@@ -1,7 +1,9 @@
 package cineMax;
+
 import java.util.LinkedList;
 public class GestioneProiezioni{
     private static LinkedList<Proiezione> proiezioni;
+
     public GestioneProiezioni(){
         proiezioni = new LinkedList<>();
     }
@@ -12,15 +14,30 @@ public class GestioneProiezioni{
     }
 
     //metodi set
+    public void aggiungiProiezione(Proiezione p) {
+        for (int i = 0; i < proiezioni.size(); i++) {
+            if (p.getDataOraProiezione() == proiezioni.get(i).getDataOraProiezione()) {
+                throw new IllegalArgumentException("Proiezione già presente");
+            }
+        }
+        proiezioni.add(p);
+    }
+
+    public void rimuoviProiezione(int posizioneProiezione){
+        if(posizioneProiezione >=1 && posizioneProiezione <= proiezioni.size()) {
+            proiezioni.remove(posizioneProiezione - 1);
+        } else {
+            throw new IndexOutOfBoundsException("posizione oltre il limite della lista");
+        }
+    }
 
     public LinkedList<Proiezione> getProiezioni(){
         return proiezioni;
     }
-    public static void stampaProiezioni(){
+    public static void stampaProiezioni(){      //da adattere, un po' generico
         for(Proiezione p: proiezioni){
             System.out.println(p);
         }
-        proiezioni.add(p);
     }
     public LinkedList<Proiezione> cercaProiezioni(int r, String s){
         String[] filter = filtriArray(s);

@@ -30,7 +30,12 @@ public class Encript_Password {     //DA RIVEDERE TUTTO
         //leggi da file (penso?)
         //decripta carattere per carattere e crea una stringa
         //restituisci la stringa
-        return "";
+        return pws;
+    }
+    public boolean equals(String s){
+        if((decrypt(this)).equals(s)){
+
+        }
     }
 }
 
